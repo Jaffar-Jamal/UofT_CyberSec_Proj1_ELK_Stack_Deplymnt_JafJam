@@ -1,0 +1,162 @@
+Step 1: Create, Extract, Compress, and Manage tar Backup Archives
+Command to extract the TarDocs.tar archive to the current directory:
+tar -xvf TarDocs.tar
+
+
+Command to create the Javaless_Doc.tar archive from the TarDocs/ directory, while excluding the TarDocs/Documents/Java directory:
+tar -cvf Javaless_Docs.tar --exclude=TarDocs/Documents/Java ~/Projects 
+
+Command to ensure Java/ is not in the new Javaless_Docs.tar archive:
+tar -tvf Javaless_Docs.tar | grep "Documents/Java"
+
+
+Bonus
+Command to create an incremental archive called logs_backup_tar.gz with only changed files to snapshot.file for the /var/log directory:
+sudo tar --listed-incremental=snapshot.file -cvf logs_backup.tar.gz /var/logs
+(Reference: http://www.gnu.org/software/tar/manual/html_node/Incremental-Dumps.html)
+
+
+Critical Analysis Question
+Why wouldn't you use the options -x and -c at the same time with tar?
+Because they are two different commands. -x is to extract a tar file and -c is to create one.
+________________________________________
+
+
+Step 2: Create, Manage, and Automate Cron Jobs
+Cron job for backing up the /var/log/auth.log file:
+0 6 * * 3 tar -zcvf auth_backup.tgz /var/log/auth.log
+(Reference: https://www.yeahhub.com/simple-backup-script-cronjob/)
+
+
+
+________________________________________
+Step 3: Write Basic Bash Scripts
+Brace expansion command to create the four subdirectories:
+mkdir -p ~/backups/{freemem,diskuse,openlist,freedisk}
+(Refence: https://www.howtogeek.com/275069/how-to-create-multiple-subdirectories-with-one-linux-command)
+
+
+Paste your system.sh script edits below:
+#!/bin/bash
+free -h > ~/backups/freemem/freemem.txt
+du -h > ~/backups/diskuse/disk_use.txt
+df -h > ~/backups/freedisk/free_disk.txt
+lsof > ~/backups/openlist/open_list.txt
+
+
+Command to make the system.sh script executable:
+chmod +x system.sh
+
+
+Optional
+Commands to test the script and confirm its execution:
+sudo ./system.sh
+
+
+
+Bonus
+Command to copy system to system-wide cron directory:
+sudo cp system.sh /etc/cron.weekly
+
+________________________________________
+Step 4. Manage Log File Sizes
+Run sudo nano /etc/logrotate.conf to edit the logrotate configuration file.
+Configure a log rotation scheme that backs up authentication messages to the /var/log/auth.log.
+Add your config file edits below:
+
+/var/log/auth.log {
+    Weekly
+    rotate 7
+    notifempty
+    delaycompress
+    missingok 
+}
+(Reference: https://man7.org/linux/man-pages/man8/logrotate.8.html and ‘man logrotate’)
+
+________________________________________
+Bonus: Check for Policy and File Violations
+Command to verify auditd is active:
+systemctl status auditd
+
+
+
+
+
+Command to set number of retained logs and maximum log file size:
+sudo nano /etc/audit/auditd.conf
+
+
+Add the edits made to the configuration file below:
+max_log_file = 35
+num_logs = 7
+
+Command using auditd to set rules for /etc/shadow, /etc/passwd and /var/log/auth.log:
+sudo nano /etc/audit/rules.d/audit.rules
+
+Add the edits made to the rules file below:
+-w /etc/shadow -p wra -k hashpass_audit
+-w /etc/passwd -p wra -k userpass_audit
+-w /var/log/auth.log -p wra -k authlog_audit
+(Reference: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/security_guide/sec-defining_audit_rules_and_controls)
+
+Command to restart auditd:
+systemctl restart auditd
+
+
+Command to list all auditd rules:
+sudo auditctl -l
+
+
+Command to produce an audit report:
+sudo aureport -au
+
+
+
+
+
+
+
+Create a user with sudo useradd attacker and produce an audit report that lists account modifications:
+sudo useradd attacker
+sudo aureport -m
+
+
+Command to use auditd to watch /var/log/cron:
+sudo auditctl -w /var/log/cron
+
+Command to verify auditd rules:
+sudo auditctl -l
+
+________________________________________
+
+
+
+
+
+
+
+Bonus (Research Activity): Perform Various Log Filtering Techniques
+
+(Reference: Google and https://www.linode.com/docs/guides/how-to-use-journalctl/)
+
+Command to return journalctl messages with priorities from emergency to error:
+journalctl -p err -b
+
+
+Command to check the disk usage of the system journal unit since the most recent boot:
+sudo journalctl --disk-usage -b
+
+
+Command to remove all archived journal files except the most recent two:
+sudo journalctl --vacuum-time=2
+(Reference: https://unix.stackexchange.com/questions/139513/how-to-clear-journalctl)
+
+
+
+Command to filter all log messages with priority levels between zero and two, and save output to /home/sysadmin/Priority_High.txt:
+sudo journalctl -p 0..2 > /home/sysadmin/Priority_High.txt 
+(Reference: https://www.golinuxcloud.com/view-logs-using-journalctl-filter-journald/#9_Filter_logs_based_on_priority)
+
+
+Command to automate the last command in a daily cronjob. Add the edits made to the crontab file below:
+[Sorry ran out of time. Must upload file.]

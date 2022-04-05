@@ -1,0 +1,35 @@
+Player:
+Notes:
+
+The times the loses occured on each day are:
+23:00, 20:00, 14:00, 08:00 and 05:00
+
+If there is a certain player that was playing during each of those times:
+Yes. The player Mylie Schmidt was playing during each of those times.
+
+The Total count of time this player was playing:
+13
+
+________________________________________________________________________________________________________
+Dealer:
+Notes:
+
+The primary dealer working at the times where losses occurred was:
+Billy Jones
+
+How many times the dealer worked when major losses occured:
+15
+________________________________________________________________________________________________________
+Correlation:
+
+Summary:
+There was total of 13 counts of major losses that occurred between the week of March 10 at Lucky Duck’s Roulette Tables. The exact dates Lucky Duck incurred these losses were March 10th, 12th and 15th between that week. The time these loses occurred were 23:00, 20:00, 14:00, 08:00 and 05:00. The largest amount lost in one instance was $182,419 and the smallest was $65,348.
+From the loss’s reports, player records and dealer schedules, I was able to find that player Mylie Schmidt and dealer Billy Jones met at the roulette tables at the exact same time the losses occurred on those days above. No other player or dealer has been identified to have played or dealt at the time of loses. 
+Therefore, based on my analysis, the player Mylie Schmidt and dealer Billy Jones colluded to steal a significant amount of money from Lucky Duck at their roulette tables over the last month.
+Recommendations:
+Please block all access to the casino for player Mylie Schmidt.
+Please block all access to the casino for employee Billy Jones.
+Please report them to the authorities.
+
+
+
