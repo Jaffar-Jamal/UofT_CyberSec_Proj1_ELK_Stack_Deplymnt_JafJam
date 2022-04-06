@@ -33,7 +33,7 @@ __This document contains the following details:__
 •	ELK Configuration
 
     - Beats in Use
-    - Machines Being Monitored
+    - Machines being monitored
 
 •	How to Use the Ansible Build
 
