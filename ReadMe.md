@@ -2,7 +2,7 @@
 
 The files in this repository were used to configure the network depicted in the diagram below.
 
-[__ELK Stack Diagram__ by __Jaffar Jamal__](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Diagrams/ELK_Stack_Diagram.png)
+![__ELK Stack Diagram__ by __Jaffar Jamal__](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Diagrams/ELK_Stack_Diagram.png)
 
 Thes files below have been tested and used to generate a live ELK deployment on [__Azure__](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Azure%20Home.JPG). They can be used to recreate the entire deployment pictured in the above diagram. Alternatively, select portions of the playbook files may be used to install only certain pieces of it, such as Filebeat.
 
@@ -111,7 +111,9 @@ The playbook implements the following tasks:
 
 •	Downloads and launches the Docker ELK container and enables it on boot.
 
-This link to a [**screenshot**](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/docker_ps_output.JPG) displays the result of running __docker ps__ after successfully configuring the ELK instance.
+The screenshot below displays the result of running __docker ps__ after successfully configuring the ELK instance.
+
+![**screenshot**](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/docker_ps_output.JPG)
 
 # Target Machines & Beats
 
@@ -160,7 +162,11 @@ For e.g., ansible-playbook filebeat-playbook.yml.
 
 After running the playbooks successfully with no errors, navigate to http://[your_elk_server_public_ip]:5601/app/kibana on your host browser to check that the installation worked as expected. You should see the Kibana webpage below starting with the public IP of your ELK machine:
 
-Links to => [__My Kibana Homepage__](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Kibana_Home.JPG) [__My Kibana Logs 1__](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Kibana%20-%20Most%20Bytes%20(activity).JPG) [__My Kibana Logs 2__](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Kibana%20-%20404%20last%202%20days.jpg) [__My Kibana Logs 3__](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Kibana%20-%20503%20last%202%20days.jpg) [__MY Kibana Logs 4__](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Kibana%20-%20India%207%20days.JPG) [__My Kibana Logs 5__](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Kibana%20-%20Files%20downloaded.JPG)
+![__My Kibana Homepage__](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Kibana_Home.JPG) 
+
+Additional screenshots for Kibana:
+
+[__My Kibana Logs 1__](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Kibana%20-%20Most%20Bytes%20(activity).JPG) [__My Kibana Logs 2__](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Kibana%20-%20404%20last%202%20days.jpg) [__My Kibana Logs 3__](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Kibana%20-%20503%20last%202%20days.jpg) [__MY Kibana Logs 4__](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Kibana%20-%20India%207%20days.JPG) [__My Kibana Logs 5__](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Kibana%20-%20Files%20downloaded.JPG)
 
 __If this is what you see after deploying, congratulations! You too have successfully configured and deployed an automated ELK stack.__
 
