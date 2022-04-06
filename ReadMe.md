@@ -53,7 +53,7 @@ __Filebeat__ watches for log files and events, collects and forwards them to Ela
 
 __Metricbeat__ watches for key metrics from the operating system and services running on the servers, collects and forwards them to Elasticsearch or Logstash.
 
-The configuration details of each [__virtual machine__](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Azure%20-VMs.JPG) can be seen below.
+The configuration details of each Virtual Machine can be seen below:
 
 | Name               | Operating System | Function   | Public IP      | Internal IP |
 |--------------------|------------------|------------|----------------|-------------|
@@ -62,6 +62,8 @@ The configuration details of each [__virtual machine__](https://github.com/Jaffa
 | Web-2              | Linux - Ubuntu   | Web Server | 20.211.110.180 | 10.1.0.6    |
 | Web-3              | Linux - Ubuntu   | Web Server | None           | 10.1.0.7    |
 | ELK-Server         | Linux - Ubuntu   | ELK Stack  | 20.37.255.53   | 10.0.0.4    |
+
+![__virtual machine__](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Azure%20-VMs.JPG) 
 
 # Access Policies
 
@@ -127,19 +129,23 @@ This ELK server is configured to monitor the following machines:
 
 I have installed the following Beats on these machines:
 
-•	[__Filebeat__](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Filebeat.JPG) on ELK Server.
+•	__Filebeat__ on ELK Server.
 
-•	[__Metricbeat__](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Metricbeat.JPG) on Web-1, Web-2 and Web-3.
+![__Filebeat__](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Filebeat.JPG)
+
+•	__Metricbeat__ on Web-1, Web-2 and Web-3.
+
+![__Metricbeat__](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Metricbeat.JPG)
 
 These Beats allow us to collect the following information from each machine:
 
 •	__Filebeat__ monitors and collects system logs, server logs, SQL logs, GC logs and audit logs to name a few. It then forwards them to ELK for indexing which can later be filtered and reviewed to identify and examine specific events.
 
- Link to => [Filebeat logs](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Filebeat_logs.JPG)
+ ![Filebeat logs](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Filebeat_logs.JPG)
 
 •	__Metricbeat__ monitors and collects metrics from operating systems and services that run on the server. These metrics can include CPU and memory usage, memory and network stats, which is used to identify and examine any non-standard unusual behaviors consuming system resources.
 
-Link to => [Metricbeat logs](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Metricbeat_logs.JPG)
+![Metricbeat logs](https://github.com/Jaffar-Jamal/UofT_CyberSec_Proj1_ELK_Stack_Deplymnt_JafJam/blob/1a89681c5a7ef359d63eb3e1f4fa7ff7a975d343/Images/Metricbeat_logs.JPG)
 
 # Using the Playbook
 
