@@ -69,11 +69,11 @@ The configuration details of each Virtual Machine can be seen below:
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the __JumpBoxProvisioner__ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+Only the __JumpBoxProvisioner__ machine can accept connections from the Internet. Access to this machine is allowed only from the following IP addresses:
 
      -  My Public IP (undisclosed for privacy) over Port 22.
 
-Machines within the network can only be accessed by __JumpBoxProvisioner__.
+Machines within the network can be accessed only by __JumpBoxProvisioner__.
 
 •	Machines allowed to access my __ELK-Server__:
 
