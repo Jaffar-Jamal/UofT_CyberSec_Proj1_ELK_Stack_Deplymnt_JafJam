@@ -35,7 +35,7 @@ __This document contains the following details:__
     - Beats in Use
     - Machines being monitored
 
-•	How to Use the Ansible Build
+•	How to use the Ansible build
 
 # Description of the Topology
 
